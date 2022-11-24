@@ -3,7 +3,10 @@ import Header from "../../components/Header";
 import Seo from "../../components/Seo";
 import { Container } from "../../styles/Home";
 
-import { getContentFromFile, getContentFromFolder } from "../../lib/util";
+import {
+  getContentFromFile,
+  getContentFromFolder,
+} from "../../lib/fileHandlers";
 
 export default function BlogInterna({ post }) {
   return (

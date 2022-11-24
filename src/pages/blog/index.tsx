@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Header from "../../components/Header";
 import Seo from "../../components/Seo";
-import { getContentFromFolder, sortDate } from "../../lib/util";
+import { getContentFromFolder } from "../../lib/fileHandlers";
+import { sortDate } from "../../lib/sorting";
 import { Container } from "../../styles/Home";
 
 export default function Blog({ posts }) {
