@@ -3,12 +3,16 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   html,
   body {
-    padding: 0;
-    margin: 0;
+    font-family: sans-serif;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  body {
+    max-width: 1024px;
+    margin: auto;
   }
 
   .no-scroll {
@@ -29,13 +33,11 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     color: inherit;
-    text-decoration: none;
+    text-decoration: underline;
   }
 
   * {
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
   }
 
   /**************/

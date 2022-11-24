@@ -1,19 +1,19 @@
 import Head from "next/head";
 
-export default function Seo({
-  seo = {
-    titulo: "",
-    descricao: "",
-    favicon: { url: "" },
-    url: "/",
-    imagem: { url: "" },
+export default function Seo({ url = "/", titulo = null }) {
+  const seo = {
+    titulo: "Site",
+    descricao: "Descrição",
+    favicon: "/favicon.ico",
+    url: "http://localhost:3000",
+    imagem: "/Pinguim.png",
     noIndex: false,
-    palavrasChave: "",
-  },
-}) {
+    palavrasChave: "palavras, chave",
+  };
+
   return (
     <Head>
-      <title>{seo.titulo}</title>
+      <title>{titulo ? `${titulo} - ${seo.titulo}` : seo.titulo}</title>
       <meta name="description" content={seo.descricao} />
       {seo.noIndex ? (
         <meta name="robots" content="noindex" />
@@ -21,30 +21,24 @@ export default function Seo({
         <meta name="robots" content="index, follow" />
       )}
       <meta name="keywords" content={seo.palavrasChave} />
-      <link rel="icon" type="image/png" href={seo.favicon?.url} />
+      <link rel="icon" type="image/png" href={seo.favicon} />
 
-      <meta
-        property="og:url"
-        content={process.env.NEXT_PUBLIC_HOST + seo.url}
-      />
+      <meta property="og:url" content={seo.url + url} />
       <meta property="og:title" content={seo.titulo} />
-      <meta property="og:image" content={seo.imagem?.url} />
+      <meta property="og:image" content={seo.imagem} />
       <meta property="og:description" content={seo.descricao} />
 
-      <meta
-        name="twitter:url"
-        content={process.env.NEXT_PUBLIC_HOST + seo.url}
-      />
+      <meta name="twitter:url" content={seo.url + url} />
       <meta name="twitter:title" content={seo.titulo} />
-      <meta name="twitter:image" content={seo.imagem?.url} />
+      <meta name="twitter:image" content={seo.imagem} />
       <meta name="twitter:description" content={seo.descricao} />
 
-      <meta itemProp="url" content={process.env.NEXT_PUBLIC_HOST + seo.url} />
+      <meta itemProp="url" content={seo.url + url} />
       <meta itemProp="name" content={seo.titulo} />
-      <meta itemProp="image" content={seo.imagem?.url} />
+      <meta itemProp="image" content={seo.imagem} />
       <meta itemProp="description" content={seo.descricao} />
 
-      <link rel="canonical" href={process.env.NEXT_PUBLIC_HOST + seo.url} />
+      <link rel="canonical" href={seo.url + url} />
     </Head>
   );
 }

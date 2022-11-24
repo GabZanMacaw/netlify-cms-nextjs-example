@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Seo from "../../components/Seo";
 // import { getDocs, getSeo } from "../../lib/api";
-import { Container } from "../../components/docs";
+import { Container } from "../../styles/docs";
 
 export default function Docs({ seo, docs }) {
   return (

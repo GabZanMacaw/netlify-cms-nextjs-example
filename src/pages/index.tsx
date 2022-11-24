@@ -1,22 +1,43 @@
+import Image from "next/image";
+import Link from "next/link";
+import Header from "../components/Header";
 import Seo from "../components/Seo";
-// import { getContato, getSeo, getSite, getDocs } from "../lib/api";
+import { Container } from "../styles/Home";
 
-export default function Home({ seo, site, contato, portfolio, docs }) {
+export default function Home() {
   return (
-    <>
-      <Seo seo={seo} />
-    </>
+    <Container>
+      <Seo />
+      <Header />
+      <main>
+        <h1>Página inicial</h1>
+        <p>Site de teste Netlify CMS</p>
+        <Image
+          src="/Pinguim.png"
+          alt="Imagem gerenciável"
+          width={200}
+          height={150}
+          style={{ objectFit: "cover", objectPosition: "center" }}
+        />
+        <h3>Lista simples</h3>
+        <ul>
+          <li>
+            <p>Item 1</p>
+          </li>
+          <li>
+            <p>Item 2</p>
+          </li>
+          <li>
+            <p>Item 3</p>
+          </li>
+          <li>
+            <p>Item 4</p>
+          </li>
+          <li>
+            <p>Item 5</p>
+          </li>
+        </ul>
+      </main>
+    </Container>
   );
 }
-
-// export async function getStaticProps() {
-//   return {
-//     props: {
-//       contato: await getContato(),
-//       seo: await getSeo(),
-//       site: await getSite(),
-//       docs: await getDocs(),
-//     },
-//     revalidate: 100,
-//   };
-// }
