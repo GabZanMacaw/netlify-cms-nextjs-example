@@ -1,11 +1,12 @@
 ---
-texto: Texto do site blablabla
-imagem: /Pinguim.png
+texto: Texto do site alterado no cms
+imagem: /uploads/enoboutique.webp
 lista:
-  - Item 1
+  - Alterado1
   - Item 2
   - Item 3
   - Item 4
   - Item 5
   - Item 6
+  - Alterado 7
 ---
