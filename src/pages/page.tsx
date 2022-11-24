@@ -4,68 +4,32 @@ import Header from "../components/Header";
 import Seo from "../components/Seo";
 import { Container } from "../styles/Page";
 
+import { attributes as cms } from "../../content/page.md";
+
 export default function Page() {
   return (
     <Container>
-      <Seo url="/page" titulo="Página customizada" />
+      <Seo url="/page" titulo={cms.titulo} />
       <Header />
       <main>
-        <h1>Página customizada</h1>
-        <a href="/pdf-test.pdf" download="pdf-baixado">
+        <h1>{cms.titulo}</h1>
+        <a href={cms.catalogo} download="pdf-baixado">
           <p>Baixar catálogo</p>
         </a>
         <h3>Serviços</h3>
         <ul>
-          <li>
-            <Image
-              src="/Pinguim.png"
-              alt="Imagem gerenciável"
-              width={60}
-              height={60}
-              style={{ objectFit: "cover", objectPosition: "center" }}
-            />
-            <p>Serviço 1</p>
-          </li>
-          <li>
-            <Image
-              src="/Pinguim.png"
-              alt="Imagem gerenciável"
-              width={60}
-              height={60}
-              style={{ objectFit: "cover", objectPosition: "center" }}
-            />
-            <p>Serviço 2</p>
-          </li>
-          <li>
-            <Image
-              src="/Pinguim.png"
-              alt="Imagem gerenciável"
-              width={60}
-              height={60}
-              style={{ objectFit: "cover", objectPosition: "center" }}
-            />
-            <p>Serviço 3</p>
-          </li>
-          <li>
-            <Image
-              src="/Pinguim.png"
-              alt="Imagem gerenciável"
-              width={60}
-              height={60}
-              style={{ objectFit: "cover", objectPosition: "center" }}
-            />
-            <p>Serviço 4</p>
-          </li>
-          <li>
-            <Image
-              src="/Pinguim.png"
-              alt="Imagem gerenciável"
-              width={60}
-              height={60}
-              style={{ objectFit: "cover", objectPosition: "center" }}
-            />
-            <p>Serviço 5</p>
-          </li>
+          {cms.servicos.map((servico, i) => (
+            <li>
+              <Image
+                src={servico.imagem}
+                alt={servico.texto}
+                width={60}
+                height={60}
+                style={{ objectFit: "cover", objectPosition: "center" }}
+              />
+              <p>{servico.texto}</p>
+            </li>
+          ))}
         </ul>
       </main>
     </Container>

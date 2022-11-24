@@ -1,0 +1,65 @@
+locale: pt
+backend:
+  name: git-gateway
+media_folder: /public/uploads
+public_folder: /uploads
+collections:
+  - name: content
+    label: Conteúdo
+    files:
+      - label: Home
+        name: home
+        file: /content/home.md
+        fields:
+          - { label: Texto, name: texto, widget: string }
+          - { label: Imagem, name: imagem, widget: image }
+          - {
+              label: Lista,
+              name: lista,
+              widget: list,
+              field: { label: Texto, name: texto, widget: string },
+            }
+      - label: Página customizada
+        name: page
+        file: /content/page.md
+        fields:
+          - { label: Título, name: titulo, widget: string }
+          - { label: Catálogo, name: catalogo, widget: file }
+          - {
+              label: Serviços,
+              name: servicos,
+              widget: list,
+              fields:
+                [
+                  { label: Imagem, name: imagem, widget: image },
+                  { label: Texto, name: texto, widget: string },
+                ],
+            }
+      - label: SEO
+        name: seo
+        file: /content/seo.md
+        fields:
+          - {
+              label: URL do site,
+              hint: Sem a última barra (/),
+              name: url,
+              widget: string,
+            }
+          - { label: Título do site, name: titulo, widget: string }
+          - { label: Descrição do site, name: descricao, widget: text }
+          - { label: Imagem de compartilhamento, name: imagem, widget: image }
+          - { label: Palavras-chave, name: palavrasChave, widget: string }
+          - {
+              label: Ícone do site,
+              hint: Em formato .ico,
+              name: favicon,
+              widget: file,
+            }
+  - name: blog
+    label: Blog
+    folder: "/content/blog"
+    create: true
+    identifier_field: titulo
+    fields:
+      - { label: "Título", name: "titulo", widget: "string" }
+      - { label: "Texto", name: "body", widget: "markdown" }

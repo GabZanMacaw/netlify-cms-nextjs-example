@@ -1,24 +1,44 @@
 import Markdown from "markdown-to-jsx";
-import Image from "next/image";
-import Link from "next/link";
 import Header from "../../components/Header";
 import Seo from "../../components/Seo";
 import { Container } from "../../styles/Home";
 
-import { useRouter } from "next/router";
+import { getContentFromFile, getContentFromFolder } from "../../lib/util";
 
-export default function BlogInterna() {
-  const router = useRouter();
-  const { slug } = router.query;
-
+export default function BlogInterna({ post }) {
   return (
     <Container>
-      <Seo url={`/blog/${slug}`} titulo="Post 1" />
+      <Seo url={`/blog/${post.slug}`} titulo={post.titulo} />
       <Header />
       <main>
-        <h1>Post 1</h1>
-        <Markdown>*Texto da postagem*</Markdown>
+        <h1>{post.titulo}</h1>
+        <Markdown>{post.body}</Markdown>
       </main>
     </Container>
   );
+}
+
+export function getStaticPaths() {
+  return {
+    paths: getContentFromFolder("content/blog").map((post) => {
+      return { params: { slug: post.slug } };
+    }),
+    fallback: "blocking",
+  };
+}
+
+export function getStaticProps({ params }) {
+  try {
+    const data = getContentFromFile(`content/blog/${params.slug}.md`);
+
+    return {
+      props: {
+        post: data,
+      },
+    };
+  } catch {
+    return {
+      notFound: true,
+    };
+  }
 }

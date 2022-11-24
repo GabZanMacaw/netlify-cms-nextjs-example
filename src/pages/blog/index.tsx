@@ -1,10 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import Header from "../../components/Header";
 import Seo from "../../components/Seo";
+import { getContentFromFolder } from "../../lib/util";
 import { Container } from "../../styles/Home";
 
-export default function Blog() {
+export default function Blog({ posts }) {
   return (
     <Container>
       <Seo url="/blog" titulo="Blog" />
@@ -12,17 +12,21 @@ export default function Blog() {
       <main>
         <h1>Blog</h1>
         <div className="posts">
-          <Link href="/blog/post-1">
-            <p>Post 1</p>
-          </Link>
-          <Link href="/blog/post-2">
-            <p>Post 2</p>
-          </Link>
-          <Link href="/blog/post-3">
-            <p>Post 3</p>
-          </Link>
+          {posts.map((post) => (
+            <Link href={`/blog/${post.slug}`}>
+              <p>{post.titulo}</p>
+            </Link>
+          ))}
         </div>
       </main>
     </Container>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      posts: getContentFromFolder("content/blog"),
+    },
+  };
 }
