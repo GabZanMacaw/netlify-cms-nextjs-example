@@ -1,21 +1,13 @@
 import Head from "next/head";
 
-export default function Seo({ url = "/", titulo = null }) {
-  const seo = {
-    titulo: "Site",
-    descricao: "Descrição",
-    favicon: "/favicon.ico",
-    url: "http://localhost:3000",
-    imagem: "/Pinguim.png",
-    noIndex: false,
-    palavrasChave: "palavras, chave",
-  };
+import { attributes as seo } from "../../content/seo.md";
 
+export default function Seo({ url = "/", titulo = null, noIndex = false }) {
   return (
     <Head>
       <title>{titulo ? `${titulo} - ${seo.titulo}` : seo.titulo}</title>
       <meta name="description" content={seo.descricao} />
-      {seo.noIndex ? (
+      {noIndex ? (
         <meta name="robots" content="noindex" />
       ) : (
         <meta name="robots" content="index, follow" />
