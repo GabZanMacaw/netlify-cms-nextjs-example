@@ -1,5 +1,16 @@
 ---
-titulo: Post 1
+titulo: Postagem 1
 ---
+**Texto** da *postagem*
 
-Texto da _postagem_
+**Texto** da *postagem*
+
+**Texto** da *postagem*
+
+**Texto** da *postagem*
+
+**Texto** da *postagem*
+
+**Texto** da *postagem*
+
+**Texto** da *postagem*
