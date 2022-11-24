@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Header from "../../components/Header";
 import Seo from "../../components/Seo";
-import { getContentFromFolder } from "../../lib/util";
+import { getContentFromFolder, sortDate } from "../../lib/util";
 import { Container } from "../../styles/Home";
 
 export default function Blog({ posts }) {
@@ -12,8 +12,8 @@ export default function Blog({ posts }) {
       <main>
         <h1>Blog</h1>
         <div className="posts">
-          {posts.map((post) => (
-            <Link href={`/blog/${post.slug}`}>
+          {posts.sort(sortDate("data")).map((post) => (
+            <Link href={`/blog/${post.slug}`} key={post.slug}>
               <p>{post.titulo}</p>
             </Link>
           ))}

@@ -67,3 +67,10 @@ collections:
     fields:
       - { label: "Título", name: "titulo", widget: "string" }
       - { label: "Texto", name: "body", widget: "markdown" }
+      - {
+          label: "Data de postagem",
+          name: "data",
+          widget: "datetime",
+          date_format: "DD/MM/YYYY",
+          time_format: "HH:mm",
+        }
