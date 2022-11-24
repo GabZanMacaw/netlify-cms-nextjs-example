@@ -1,8 +1,8 @@
 ---
-url: http://localhost:3000
-titulo: Site usando Netlify CMS
-descricao: Descrição do site
-imagem: /Pinguim.png
+url: https://main--enchanting-jalebi-c68fe2.netlify.app
+titulo: Site altedado usando Netlify CMS
+descricao: Descrição do site Netlify CMS
+imagem: /uploads/enoboutiquemontagem.webp
 palavrasChave: palavras, chave
-favicon: /favicon.ico
+favicon: /uploads/favicon.ico
 ---
