@@ -1,11 +1,11 @@
 ---
-titulo: Página custom
-catalogo: /pdf-test.pdf
+titulo: Minha página
+catalogo: /uploads/pdf-baixado.pdf
 servicos:
-  - imagem: /Pinguim.png
-    texto: Serviço 1
-  - imagem: /Pinguim.png
-    texto: Serviço 2
-  - imagem: /Pinguim.png
-    texto: Serviço 3
+  - imagem: /uploads/carousel.webp
+    texto: Casa
+  - imagem: /uploads/enoboutiquemontagem.webp
+    texto: Vinho
+  - imagem: /uploads/historia1995.webp
+    texto: Barril
 ---
