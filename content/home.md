@@ -1,6 +1,6 @@
 ---
 texto: Texto do site alterado no cms
-imagem: /uploads/enoboutique.webp
+imagem: /uploads/pinguim.png
 lista:
   - Alterado1
   - Item 2
@@ -9,4 +9,5 @@ lista:
   - Item 5
   - Item 6
   - Alterado 7
+  - item 8
 ---
