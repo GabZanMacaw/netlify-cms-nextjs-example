@@ -13,7 +13,7 @@ export default function Blog({ posts }) {
       <main>
         <h1>Blog</h1>
         <div className="posts">
-          {posts.sort(sortDate("data")).map((post) => (
+          {posts.map((post) => (
             <Link href={`/blog/${post.slug}`} key={post.slug}>
               <p>{post.titulo}</p>
             </Link>
